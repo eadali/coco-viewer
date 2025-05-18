@@ -180,7 +180,8 @@ def draw_bboxes(draw, objects, labels, obj_categories, ignore, width, label_size
                     # TODO: Implement notification message as popup window
                     font = ImageFont.load_default()
 
-                tw, th = draw.textsize(text, font)
+                x1, y1, x2, y2 = font.getbbox(text)
+                tw, th = (x2-x1, y2-y1)
                 tx0 = b[0]
                 ty0 = b[1] - th
 
